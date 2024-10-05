@@ -137,15 +137,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlindedGrimlock
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-    - target: {fileID: 3626916397498700004, guid: 5f26c7d1293484dbd9671fd05469ba82, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3626916397498700004, guid: 5f26c7d1293484dbd9671fd05469ba82, type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 0
-=======
     - target: {fileID: -2253911629886400664, guid: 5f26c7d1293484dbd9671fd05469ba82, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -157,7 +148,6 @@ PrefabInstance:
     - target: {fileID: 3626916397498700004, guid: 5f26c7d1293484dbd9671fd05469ba82, type: 3}
       propertyPath: m_SortingLayerID
       value: -712676925
->>>>>>> f37aae0 (progress on ally attack)
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 5f26c7d1293484dbd9671fd05469ba82, type: 3}
       propertyPath: m_LocalPosition.x
