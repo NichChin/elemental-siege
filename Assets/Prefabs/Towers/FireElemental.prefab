@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4855069276921717316}
   - component: {fileID: 1072972235101246561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FireElemental
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd68f7afcc0cf43ae909928f736bda43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  targetingRange: 5
 --- !u!1001 &3134291164151697252
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57,21 +61,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireElemental
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3626916397498700004, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
-      propertyPath: m_SortingOrder
+      propertyPath: m_SortingLayer
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7878350319992209165, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
+    - target: {fileID: 3626916397498700004, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1258745689
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 362f1a3b0ef1041b589f94c44bfc8742, type: 3}
       propertyPath: m_LocalPosition.x
