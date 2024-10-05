@@ -48,8 +48,14 @@ public class Tower : MonoBehaviour
 
     private bool IsTargetAlive()
     {
-        Enemy enemy = target.parent.GetComponent<Enemy>();
-        return enemy.getHealth() > 0;
+        if (target == null)
+        {
+            Debug.LogWarning("Target is null. Cannot check if alive.");
+            return false; // If there's no target, consider it not alive
+        }
+
+        Enemy enemy = target.GetComponent<Enemy>(); // Assuming Enemy is on the target GameObject
+        return enemy != null && enemy.getHealth() > 0;
     }
 
     private void OnDrawGizmosSelected()
