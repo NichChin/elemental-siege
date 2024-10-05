@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text manaText;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text healthText;
 
     public void UpdateMana(int mana)
     {
@@ -17,5 +18,10 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = "SCORE: " + score;
+    }
+
+    public void UpdateHealth(int health)
+    {
+        healthText.text = "HEALTH: " + health;
     }
 }

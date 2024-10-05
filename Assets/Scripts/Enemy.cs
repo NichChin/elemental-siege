@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     private Animator animator;
 
     [SerializeField] float health = 10f;
-    public int manaReward = 10; // change amt depending on enemy later on?
+    [SerializeField] public int manaReward = 10; // change amt depending on enemy later on?
+    [SerializeField] public int enemyReward = 10; // change amt depending on enemy later on?
 
     public void TakeDamage(float dmg)
     {
@@ -15,6 +16,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             LevelManager.main.IncreaseMana(manaReward);
+            LevelManager.main.IncreaseScore(enemyReward);
+
             Destroy(gameObject);
         }
     }
@@ -26,10 +29,5 @@ public class Enemy : MonoBehaviour
     void Start()
     {
      animator = GetComponent<Animator>();   
-    }
-
-    void Update()
-    {
-    
     }
 }
