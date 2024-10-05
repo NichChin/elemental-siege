@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     void Start()
     {
-     animator = GetComponent<Animator>();   
+        animator = GetComponent<Animator>();   
     }
 
     void Update()
