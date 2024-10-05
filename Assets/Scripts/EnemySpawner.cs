@@ -2,88 +2,88 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] private Transform[] enemySpawnPoints;
-    [SerializeField] private int wavesPerRound = 3;
+    [SerializeField] private GameObject[] enemyPrefabs;
+
+    [SerializeField] private int baseEnemies = 5;
     [SerializeField] private float timeBetweenWaves = 10f;
-    [SerializeField] private int baseEnemiesPerWave = 5;
+    [SerializeField] private float difficultyScalingFactor = 0.75f;
+    [SerializeField] private float enemiesPerSecond = 0.5f;
 
-    private int currentWave = 0;
+    public static UnityEvent onEnemyDestroy = new UnityEvent();
+
+    private int currentWave = 1;
+    private float timeSinceLastSpawn;
+    private int enemiesAlive;
+    private int enemiesLeftToSpawn;
     private List<GameObject> spawnedEnemies = new List<GameObject>();
+    private bool isSpawning = false;
 
-    private void Start()
+    private void Awake()
     {
-        StartCoroutine(SpawnWaves());
+        onEnemyDestroy.AddListener(EnemyDestroyed);
     }
-     public IEnumerator SpawnWaves()
+    private void Start() 
     {
-        for (int i = 0; i < wavesPerRound; i++)
+        StartCoroutine(StartWave());
+    }
+
+    private void Update() {
+        if (!isSpawning) return;
+
+        timeSinceLastSpawn += Time.deltaTime;
+
+        if (timeSinceLastSpawn >= (1f / enemiesPerSecond) && enemiesLeftToSpawn > 0)
         {
-            yield return StartCoroutine(SpawnWave());
-            yield return new WaitUntil(() => AllEnemiesDefeatedOrReachedEnd());
-            yield return new WaitForSeconds(timeBetweenWaves);
-            currentWave++;
+            SpawnEnemy();
+            enemiesLeftToSpawn--;
+            enemiesAlive++;
+            timeSinceLastSpawn = 0f; // don't want to call it every frame..
+        }   
+
+        if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        {
+            EndWave();
         }
     }
 
-    private IEnumerator SpawnWave()
+    private void EndWave()
     {
-        Debug.Log("Wave starting!");
-        spawnedEnemies.Clear();
-
-        // some sort of inc to enemies per wave
-        int enemiesToSpawn = baseEnemiesPerWave + (currentWave * 2);
-        for (int i = 0; i < enemiesToSpawn; i++)
-        {
-            GameObject enemy = new GameObject($"EnemyPlaceholder_{i}");
-            spawnedEnemies.Add(enemy);
-        }
-
-        for (int i = 0; i < enemiesToSpawn; i++)
-            {
-                InstantiateEnemy(i);
-                yield return new WaitForSeconds(2f); // delay between enemy spawns
-            }
-
-        Debug.Log("Wave complete!"); 
+        isSpawning = false;
+        timeSinceLastSpawn = 0f;
+        currentWave++;
+        StartCoroutine(StartWave()); // start next wave after one has ended
     }
 
-    private void InstantiateEnemy(int index)
+    private void EnemyDestroyed()
     {
-        if (enemySpawnPoints.Length == 0) return;
-
-        int randomIndex = UnityEngine.Random.Range(0, enemySpawnPoints.Length);
-        GameObject enemy = Instantiate(enemyPrefab, enemySpawnPoints[randomIndex].position, Quaternion.identity);
-        spawnedEnemies[index] = enemy; // replace placeholder with actual enemy
-        Debug.Log($"Enemy {enemy.GetInstanceID()} spawned! Total enemies: {spawnedEnemies.Count}");
+        enemiesAlive--;
+    }
+    private IEnumerator StartWave()
+    {
+        yield return new WaitForSeconds(timeBetweenWaves);
+        isSpawning = true;
+        enemiesLeftToSpawn = baseEnemies;
     }
 
-    public void RemoveEnemyFromList(GameObject enemy)
+     private void SpawnEnemy()
     {
-        Debug.Log("Trying to remove enemy. Current enemies: " + spawnedEnemies.Count);
+        GameObject prefabToSpawn = enemyPrefabs[0];
+        Instantiate(prefabToSpawn, LevelManager.main.startPoint.position, Quaternion.identity);
+
+        Debug.Log("Spawning enemy!");
+    }
     
-    if (spawnedEnemies.Contains(enemy))
+
+    private int EnemiesPerWave()
     {
-        spawnedEnemies.Remove(enemy);
-        Debug.Log($"Enemy {enemy.GetInstanceID()} removed from list! Total enemies left: {spawnedEnemies.Count}");
-        Destroy(enemy);
-        Debug.Log("Enemy destroyed!");
-    }
-    else
-    {
-        Debug.LogError($"Enemy {enemy.GetInstanceID()} not found in list!");
-    }
+        return Mathf.RoundToInt(baseEnemies * Mathf.Pow(currentWave, difficultyScalingFactor));
     }
 
-    private bool AllEnemiesDefeatedOrReachedEnd()
-    {
-        Debug.Log("asdf");
-        spawnedEnemies.RemoveAll(enemy => enemy == null || enemy.GetComponent<Enemy>().HasReachedEnd);
-        return spawnedEnemies.Count == 0;
-    }
 
 
 }

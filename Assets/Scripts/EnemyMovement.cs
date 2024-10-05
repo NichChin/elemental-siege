@@ -5,42 +5,42 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    [SerializeField] private Transform[] waypoints;
+    [SerializeField] private Rigidbody2D rb;
+
     [SerializeField] private float moveSpeed = 2f;
-    private int currentWaypointIndex = 0;
-    private Enemy enemy;
-    void Start()
+
+    private Transform target;
+    private int pathIndex = 0;
+
+    private void Start()
     {
-        // make sure enemy starts at first waypoint
-        if (waypoints.Length > 0) {
-            transform.position = waypoints[0].position;
-        }
-        enemy = GetComponent<Enemy>();
+        target = LevelManager.main.path[pathIndex];
     }
-
-    void Update()
+        
+    private void Update()
     {
-        if (waypoints.Length == 0 || enemy == null || enemy.HasReachedEnd) return;
-
-        Transform targetWaypoint = waypoints[currentWaypointIndex];
-        Vector3 direction = targetWaypoint.position - transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetWaypoint.position, moveSpeed * Time.deltaTime);
-
-        // check if close to next waypoint
-        if (Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+        if (Vector2.Distance(target.position, transform.position) <= 0.1f)
         {
-            currentWaypointIndex++;
-
-            // check if enemy is at last waypoint
-            if (currentWaypointIndex >= waypoints.Length)
+            pathIndex++;
+            
+            if (pathIndex >= LevelManager.main.path.Length)
             {
-                Debug.Log("im going to kill u");
-                enemy.ReachEnd();
+                // reached the end
+                EnemySpawner.onEnemyDestroy.Invoke();
+                Destroy(gameObject);
+                return;
+            } else 
+            {
+                target = LevelManager.main.path[pathIndex];
             }
         }
+    }    
 
+    private void FixedUpdate()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
 
-        
-        
+        rb.velocity = direction * moveSpeed;
     }
+    
 }
