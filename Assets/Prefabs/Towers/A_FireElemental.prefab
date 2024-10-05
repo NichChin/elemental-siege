@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  attackSpeed: 1
+  attackSpeed: 2.5
   attackRange: 0.01
   attackDamage: 10
-  opacity: 0.62
+  opacity: 1
 --- !u!1001 &3134291164151697252
 PrefabInstance:
   m_ObjectHideFlags: 0
