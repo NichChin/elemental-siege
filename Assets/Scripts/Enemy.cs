@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Animator animator;
 
-    private float health = 100f;
+    [SerializeField] float health = 10f;
 
     public void TakeDamage(float dmg)
     {
