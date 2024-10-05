@@ -30,7 +30,6 @@ public class EnemyMovement : MonoBehaviour
             currentWaypointIndex++;
             if (currentWaypointIndex >= waypoints.Length)
             {
-                Destroy(gameObject);
                 currentWaypointIndex = 0;
             }
         }
