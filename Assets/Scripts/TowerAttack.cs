@@ -9,6 +9,15 @@ public class TowerAttack : MonoBehaviour
     public float attackSpeed = 1f; // Speed of the Pokémon's attack
     public float attackRange = 0.01f; // Distance to consider the attack "hit"
     public int attackDamage = 10; // Damage dealt on hit
+    public float opacity = 0.5f;
+
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer.material.color = new Color(1f, 1f, 1f, opacity);
+    }
 
     private void Update()
     {
@@ -27,12 +36,6 @@ public class TowerAttack : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, attackRange);
-    }
-
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
@@ -40,7 +43,11 @@ public class TowerAttack : MonoBehaviour
 
     private void DealDamage()
     {
-        Enemy enemy = target.GetComponent<Enemy>();
+        if (target == null)
+        {
+            return;
+        }
+        Enemy enemy = target.parent.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.TakeDamage(attackDamage);
