@@ -47,7 +47,7 @@ public class TowerAttack : MonoBehaviour
         {
             return;
         }
-        Enemy enemy = target.parent.GetComponent<Enemy>();
+        Enemy enemy = target.GetComponent<Enemy>();
         if (enemy != null)
         {
             enemy.TakeDamage(attackDamage);
