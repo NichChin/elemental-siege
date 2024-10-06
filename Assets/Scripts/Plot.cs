@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Plot : MonoBehaviour
 {
@@ -13,14 +14,13 @@ public class Plot : MonoBehaviour
 
     private GameObject tower;
     private Color startColor;
+    private Color placeable = new Color(62 / 255f, 255 / 255f, 42 / 255f, 1f);
+    private Color notPlaceable = new Color(255 / 255f, 32 / 255f, 48 / 255f, 1f);
     private bool isMouseOn = false;
     private bool isTowerSelected = false;
 
     private void Start()
     {
-        Color placeable = new Color(62 / 255f, 255 / 255f, 42 / 255f, 1f);
-        Color notPlaceable = new Color(255 / 255f, 32 / 255f, 48 / 255f, 1f);
-
         startColor = sr.color;
         hoverColor = isPlaceable ? placeable : notPlaceable;
     }
@@ -28,8 +28,24 @@ public class Plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        if (IsPointerOverUIElement())
+        {
+            return;
+        }
+
+        if(BuildManager.main.GetSelectedTower().cost > LevelManager.main.GetMana() || tower != null)
+        {
+            sr.color = notPlaceable;
+        }
+        else
+        {
+            sr.color = placeable;
+        }
+        
         isMouseOn = true;
-        sr.color = hoverColor;
+
+        BaseTower towerToBuild = BuildManager.main.GetSelectedTower();
+        GhostTowerManager.Instance.ShowGhostTower(towerToBuild.prefab, transform.position, sr.color, 0.4f);
 
         if (tower != null)
         {
@@ -37,13 +53,19 @@ public class Plot : MonoBehaviour
         }
         else // only show ghost tower if there's no tower on the plot
         {
-            GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-            GhostTowerManager.Instance.ShowGhostTower(towerToBuild, transform.position, hoverColor, 0.4f);
+            GhostTowerManager.Instance.ShowGhostTower(towerToBuild.prefab, transform.position, sr.color, 0.4f);
         }
     }
 
     private void OnMouseExit()
     {
+        if (IsPointerOverUIElement())
+        {
+            GhostTowerManager.Instance.HideGhostTower();
+            sr.color = startColor;
+            return;
+        }
+
         sr.color = startColor;
         isTowerSelected = false;
 
@@ -66,37 +88,25 @@ public class Plot : MonoBehaviour
             isTowerSelected = false;
             GhostTowerManager.Instance.HideGhostTower();
 
-            GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-            tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
-        }
+             BaseTower towerToBuild = BuildManager.main.GetSelectedTower();
 
+
+            if (towerToBuild.cost > LevelManager.main.GetMana())
+            {
+                print("not enough moneys");
+                return;
+            }
+
+            LevelManager.main.DecreaseMana(towerToBuild.cost);
+            tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         
-
-    }
-
-    private void SetGhostTowerOpacity(GameObject tower, float opacity)
-    {
-        SpriteRenderer[] renderers = tower.GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer renderer in renderers)
-        {
-            Color color = renderer.color;
-            color.a = opacity;
-            renderer.color = color;
+            GhostTowerManager.Instance.HideGhostTower();
         }
     }
 
-    private void SetGhostTowerRangeColor(GameObject tower, Color color, float opacity)
+    private bool IsPointerOverUIElement()
     {
-        Transform rangeTransform = tower.transform.Find("Range");
-        if (rangeTransform != null)
-        {
-            SpriteRenderer rangeRenderer = rangeTransform.GetComponent<SpriteRenderer>();
-            if (rangeRenderer != null)
-            
-                rangeRenderer.color = color;
-                color.a = opacity;
-            
-        }
+        return EventSystem.current.IsPointerOverGameObject();
     }
 
 }   
