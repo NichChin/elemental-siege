@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Bits: 64
   attackPrefab: {fileID: 8136943332412583632, guid: aff2de3265be8bc4688ea08b843cb94e, type: 3}
   targetingRange: 1
-  bps: 2
+  bps: 1.5
 --- !u!1 &8589804412723695170
 GameObject:
   m_ObjectHideFlags: 0

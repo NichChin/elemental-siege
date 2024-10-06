@@ -76,7 +76,11 @@ public class Plot : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {  
+    {
+        if (IsPointerOverUIElement())
+        {
+            return;
+        }
         // show the range of the tower if it exists
         if (tower != null && !isTowerSelected)
         {

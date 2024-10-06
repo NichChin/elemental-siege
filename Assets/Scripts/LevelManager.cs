@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         uiManager.UpdateMana(mana);
         uiManager.UpdateScore(score);
+        uiManager.UpdateHealth(health);
     }
 
     public void IncreaseMana(int amount) {
