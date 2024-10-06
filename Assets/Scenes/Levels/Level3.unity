@@ -10370,7 +10370,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fire Elemental
+  m_text: '100 Mana:
+
+    Fire Elemental'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -16901,8 +16903,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 31.410164}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696633603
 MonoBehaviour:
@@ -31613,8 +31615,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 31.410164}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464992651
 MonoBehaviour:
@@ -35624,7 +35626,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ice
+  m_text: '200 Mana:
+
+    Ice
 
     Golem'
   m_isRightToLeft: 0
@@ -44797,7 +44801,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Earth Elemental
+  m_text: '400 Mana:
+
+    Earth Elemental'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -44913,8 +44919,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 31.41015}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143921384
 MonoBehaviour:
