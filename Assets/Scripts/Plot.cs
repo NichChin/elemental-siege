@@ -14,6 +14,7 @@ public class Plot : MonoBehaviour
     private GameObject tower;
     private Color startColor;
     private bool isMouseOn = false;
+    private bool isTowerSelected = false;
 
     private void Start()
     {
@@ -30,28 +31,46 @@ public class Plot : MonoBehaviour
         isMouseOn = true;
         sr.color = hoverColor;
 
-        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-        GhostTowerManager.Instance.ShowGhostTower(towerToBuild, transform.position, hoverColor, 0.4f);
+        if (tower != null)
+        {
+            GhostTowerManager.Instance.HideGhostTower();
+        }
+        else // only show ghost tower if there's no tower on the plot
+        {
+            GameObject towerToBuild = BuildManager.main.GetSelectedTower();
+            GhostTowerManager.Instance.ShowGhostTower(towerToBuild, transform.position, hoverColor, 0.4f);
+        }
     }
 
     private void OnMouseExit()
     {
         sr.color = startColor;
+        isTowerSelected = false;
 
         if (isMouseOn) return;
         isMouseOn = false;
-        
+
         GhostTowerManager.Instance.HideGhostTower();
     }
 
     private void OnMouseDown()
-    {
-        if (tower != null || !isPlaceable) return;
+    {  
+        // show the range of the tower if it exists
+        if (tower != null && !isTowerSelected)
+        {
+            GhostTowerManager.Instance.ShowGhostTower(tower, transform.position, hoverColor, 0.4f);
+            isTowerSelected = true;
+        }
+        else if (tower == null && isPlaceable)
+        {
+            isTowerSelected = false;
+            GhostTowerManager.Instance.HideGhostTower();
 
-        GhostTowerManager.Instance.HideGhostTower();
+            GameObject towerToBuild = BuildManager.main.GetSelectedTower();
+            tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        }
 
-        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        
 
     }
 
@@ -80,4 +99,4 @@ public class Plot : MonoBehaviour
         }
     }
 
-}
+}   
