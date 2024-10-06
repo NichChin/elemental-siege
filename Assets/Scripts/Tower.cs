@@ -57,13 +57,6 @@ public class Tower : MonoBehaviour
         Enemy enemy = target.GetComponent<Enemy>(); // Assuming Enemy is on the target GameObject
         return enemy != null && enemy.getHealth() > 0;
     }
-
-    private void OnDrawGizmosSelected()
-    {
-        Handles.color = Color.cyan;
-        Handles.DrawWireDisc(transform.position, transform.forward, targetingRange);
-    }
-
     private void Attack()
     {
         GameObject towerAttack = Instantiate(attackPrefab, transform.position, Quaternion.identity);
