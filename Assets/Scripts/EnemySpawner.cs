@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             timeSinceLastSpawn = 0f; // don't want to call it every frame..
         }   
 
-        if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        if (enemiesAlive <= 0 && enemiesLeftToSpawn <= 0)
         {
             EndWave();
         }
@@ -74,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
-        enemiesLeftToSpawn = baseEnemies;
+        enemiesLeftToSpawn = EnemiesPerWave();
     }
 
      private void SpawnEnemy()
