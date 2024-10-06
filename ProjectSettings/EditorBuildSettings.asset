@@ -9,8 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: d3c5ad9d31791477bb94c829b48c39f8
   - enabled: 1
-    path: Assets/Scenes/grakpTest.unity
-    guid: 23ef9914823af44bd8b873f5c6a00e0c
+    path: Assets/Scenes/LevelSelect.unity
+    guid: dec4beb0f82e24fc3ae07830122d36c8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 1b61d11cb19fe4e2b80fe5dce9fd4412
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 6f6cf6298fb3c48ceb94f3a1c77f33dc
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 663d5b78532244a81a35079d4d70766f
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 6c27130c6f8714d638515afc443b8fca

@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public void LevelSelect()
     {
-        SceneManager.LoadScene("grakpTest"); // change to Level1, then further levels index +1
+        SceneManager.LoadScene("LevelSelect"); // change to Level1, then further levels index +1
 
+    }
+
+    public void LoadLevel(string levelName)
+    {
+        SceneManager.LoadScene(levelName);
     }
 
     public void QuitGame()
