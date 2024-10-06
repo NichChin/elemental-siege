@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [SerializeField] private int baseEnemies = 5;
-    [SerializeField] private float timeBetweenWaves = 10f;
+    [SerializeField] private float timeBetweenWaves = 0f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecond = 0.5f;
     [SerializeField] private int baseWaves = 3;
@@ -61,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
             LevelManager.main.Win();
         } else
         {
+            Time.timeScale = 0;
             StartCoroutine(StartWave()); // start next wave after one has ended
         }
         

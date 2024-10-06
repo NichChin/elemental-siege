@@ -35,6 +35,13 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Mana increased. Current mana: " + mana);
     }
 
+    public void DecreaseMana(int amount)
+    {
+        mana -= amount;
+        uiManager.UpdateMana(mana);
+        Debug.Log("Mana increased. Current mana: " + mana);
+    }
+
     public void IncreaseScore(int amount) {
         score += amount;
         uiManager.UpdateScore(score);
