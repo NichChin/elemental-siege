@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
     private bool isSpawning = false;
+    private UIManager uiManager;
 
     private void Awake()
     {
@@ -29,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Start() 
     {
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
         StartCoroutine(StartWave());
     }
 
@@ -62,6 +64,7 @@ public class EnemySpawner : MonoBehaviour
         } else
         {
             Time.timeScale = 0;
+            uiManager.ShowPauseMessage();
             StartCoroutine(StartWave()); // start next wave after one has ended
         }
         
