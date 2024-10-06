@@ -28,6 +28,5 @@ public class BuildManager : MonoBehaviour
     {
         print(_selectedTower);
         selectedTower = _selectedTower;
-        Shop.main.SetSelectedTower(selectedTower);
     }
 }
