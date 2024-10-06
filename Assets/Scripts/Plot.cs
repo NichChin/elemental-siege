@@ -33,7 +33,7 @@ public class Plot : MonoBehaviour
             return;
         }
 
-        if(BuildManager.main.GetSelectedTower().cost > LevelManager.main.GetMana() || tower != null)
+        if(BuildManager.main.GetSelectedTower().cost > LevelManager.main.GetMana() || tower != null || !isPlaceable)
         {
             sr.color = notPlaceable;
         }

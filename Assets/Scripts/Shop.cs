@@ -28,10 +28,17 @@ public class Shop : MonoBehaviour
             case 0:
                 outlines[0].enabled = true;
                 outlines[1].enabled = false;
+                outlines[2].enabled = false;
                 break;
             case 1:
-                outlines[1].enabled = true;
                 outlines[0].enabled = false;
+                outlines[1].enabled = true;
+                outlines[2].enabled = false;
+                break;
+            case 2:
+                outlines[0].enabled = false;
+                outlines[1].enabled = false;
+                outlines[2].enabled = true;
                 break;
         }
     }
