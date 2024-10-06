@@ -61,10 +61,11 @@ public class Plot : MonoBehaviour
     {
         if (IsPointerOverUIElement())
         sr.color = startColor;
+        isTowerSelected = false;
 
         if (isMouseOn) return;
         isMouseOn = false;
-        
+
         GhostTowerManager.Instance.HideGhostTower();
     }
 

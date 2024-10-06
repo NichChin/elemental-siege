@@ -104,12 +104,9 @@ public class Tower : MonoBehaviour
     {
         bps = newBPS;
     }
-<<<<<<< HEAD
 
     public float GetTargetingRange()
     {
         return targetingRange;
     }
-=======
->>>>>>> 6c30c4a (tower radius shows during placement)
 }
