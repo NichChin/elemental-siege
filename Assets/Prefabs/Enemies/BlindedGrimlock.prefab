@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 5425853167172743080}
   - component: {fileID: 4313935153099341425}
   - component: {fileID: 4311542096243066308}
-  - component: {fileID: 6504787977393092343}
   - component: {fileID: 2574565744499390651}
+  - component: {fileID: 6504787977393092343}
   m_Layer: 6
   m_Name: BlindedGrimlock
   m_TagString: Untagged
@@ -78,6 +78,21 @@ MonoBehaviour:
   rb: {fileID: 4313935153099341425}
   moveSpeed: 1
   damage: 20
+--- !u!114 &2574565744499390651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903013433368201006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cbe75fbdf5d4730a1d76428e1d4b0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 40
+  manaReward: 25
+  enemyReward: 100
 --- !u!58 &6504787977393092343
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,21 +128,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.09
---- !u!114 &2574565744499390651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8903013433368201006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cbe75fbdf5d4730a1d76428e1d4b0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  manaReward: 50
-  enemyReward: 100
 --- !u!1001 &7812419716297686140
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9991,7 +9991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fire Elemental
+  m_text: "100 Mana: \nFire Elemental"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -16420,8 +16420,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 33.13923}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696633603
 MonoBehaviour:
@@ -19022,13 +19022,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - name: Fire Elemental
-    cost: 50
+    cost: 100
     prefab: {fileID: 8136943332412583632, guid: 76de8bc1d78924ac096bdd573e6df347, type: 3}
   - name: Ice Golem
-    cost: 100
+    cost: 200
     prefab: {fileID: 8166660680564208069, guid: 08766eb1538654cefbe9516243fd0287, type: 3}
   - name: Earth Elemental
-    cost: 100
+    cost: 400
     prefab: {fileID: 8136943332412583632, guid: 657fc998f39ea4745a55fe6dfcca059b, type: 3}
 --- !u!114 &796880380
 MonoBehaviour:
@@ -19046,10 +19046,10 @@ MonoBehaviour:
   - {fileID: 8903013433368201006, guid: 08aeba7c3a535474e91ed7cb73c7d361, type: 3}
   - {fileID: 8903013433368201006, guid: c405279ee864b4c79b065a8bb066a4d9, type: 3}
   - {fileID: 8903013433368201006, guid: 279430ab76e9a41828e77947a881dc47, type: 3}
-  baseEnemies: 5
-  timeBetweenWaves: 10
-  difficultyScalingFactor: 0.75
-  enemiesPerSecond: 0.5
+  baseEnemies: 6
+  timeBetweenWaves: 5
+  difficultyScalingFactor: 1
+  enemiesPerSecond: 0.75
   baseWaves: 3
 --- !u!114 &796880381
 MonoBehaviour:
@@ -32055,8 +32055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 31.41015}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1464992651
 MonoBehaviour:
@@ -36291,7 +36291,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ice
+  m_text: '200 Mana:
+
+    Ice
 
     Golem'
   m_isRightToLeft: 0
@@ -45467,7 +45469,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Earth Elemental
+  m_text: '400 Mana:
+
+    Earth Elemental'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -45578,8 +45582,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 19.673439}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0, y: 30.257431}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2143921384
 MonoBehaviour:

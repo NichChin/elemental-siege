@@ -134,8 +134,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackPrefab: {fileID: 8166660680564208069, guid: 121c9527e86294d40a7199ea76a870f3, type: 3}
-  targetingRange: 1.5
-  bps: 1.8
+  targetingRange: 1.25
+  bps: 1
 --- !u!1001 &8781962314939214101
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11752,7 +11752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -566.8854, y: 507}
+  m_AnchoredPosition: {x: -566.8854, y: 427.0109}
   m_SizeDelta: {x: -1173.7708, y: -996.1189}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &506783663
@@ -14375,7 +14375,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 30, y: 492}
+  m_AnchoredPosition: {x: 30, y: 391.85294}
   m_SizeDelta: {x: -1000, y: -1000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &596378689 stripped
@@ -18546,13 +18546,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towers:
   - name: Fire Elemental
-    cost: 50
+    cost: 100
     prefab: {fileID: 8136943332412583632, guid: 76de8bc1d78924ac096bdd573e6df347, type: 3}
   - name: Ice Golem
-    cost: 100
+    cost: 200
     prefab: {fileID: 8166660680564208069, guid: 08766eb1538654cefbe9516243fd0287, type: 3}
   - name: Earth Elemental
-    cost: 100
+    cost: 400
     prefab: {fileID: 8136943332412583632, guid: 657fc998f39ea4745a55fe6dfcca059b, type: 3}
 --- !u!114 &796880380
 MonoBehaviour:
@@ -18571,8 +18571,8 @@ MonoBehaviour:
   - {fileID: 8903013433368201006, guid: c405279ee864b4c79b065a8bb066a4d9, type: 3}
   - {fileID: 8903013433368201006, guid: 08aeba7c3a535474e91ed7cb73c7d361, type: 3}
   baseEnemies: 5
-  timeBetweenWaves: 10
-  difficultyScalingFactor: 0.75
+  timeBetweenWaves: 5
+  difficultyScalingFactor: 1
   enemiesPerSecond: 0.5
   baseWaves: 3
 --- !u!114 &796880381
@@ -42032,7 +42032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 517.65656, y: 507}
+  m_AnchoredPosition: {x: 517.65656, y: 432.77454}
   m_SizeDelta: {x: -1075.3131, y: -996.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2010236690

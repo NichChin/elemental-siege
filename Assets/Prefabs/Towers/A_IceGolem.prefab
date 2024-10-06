@@ -48,7 +48,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackSpeed: 1.8
   attackRange: 0.02
-  attackDamage: 20
+  attackDamage: 15
   opacity: 1
 --- !u!1001 &8781962314939214101
 PrefabInstance:
