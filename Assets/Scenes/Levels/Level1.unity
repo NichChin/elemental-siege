@@ -10638,7 +10638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE: 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -14982,7 +14982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'MANA: 0'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
@@ -43828,7 +43828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'HEALTH: 100'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
   m_sharedMaterial: {fileID: 3019975540151070926, guid: 31d123d7ffefd47d699c7d74b53d7dbd, type: 2}
