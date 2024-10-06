@@ -16455,7 +16455,7 @@ MonoBehaviour:
   - {fileID: 8903013433368201006, guid: 08aeba7c3a535474e91ed7cb73c7d361, type: 3}
   - {fileID: 8903013433368201006, guid: 279430ab76e9a41828e77947a881dc47, type: 3}
   baseEnemies: 5
-  timeBetweenWaves: 5
+  timeBetweenWaves: 10
   difficultyScalingFactor: 0.75
   enemiesPerSecond: 0.5
   baseWaves: 3
@@ -16471,9 +16471,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2805268051aa44ba0a4dab318efba1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 0}
-  path: []
-  mana: 100
+  startPoint: {fileID: 1538977188}
+  path:
+  - {fileID: 1538977188}
+  - {fileID: 668564574}
+  - {fileID: 27777921}
+  - {fileID: 1864705430}
+  - {fileID: 118452752}
+  - {fileID: 69492615}
+  - {fileID: 1897136127}
+  - {fileID: 669644159}
+  - {fileID: 92329241}
+  - {fileID: 1260899495}
+  - {fileID: 553572960}
+  - {fileID: 374768574}
+  - {fileID: 1239474468}
+  - {fileID: 1865453639}
+  - {fileID: 469089662}
+  - {fileID: 1065091745}
+  - {fileID: 820171418}
+  - {fileID: 709611355}
+  - {fileID: 96742696}
+  - {fileID: 2100185075}
+  - {fileID: 1261056818}
+  - {fileID: 686881288}
+  - {fileID: 787144472}
+  - {fileID: 2055833450}
+  - {fileID: 2136186206}
+  - {fileID: 2076157026}
+  - {fileID: 2020968544}
+  - {fileID: 2047867397}
+  - {fileID: 1138292246}
+  - {fileID: 1511729739}
+  - {fileID: 554991008}
+  mana: 200
   score: 0
   health: 100
 --- !u!4 &796880382
