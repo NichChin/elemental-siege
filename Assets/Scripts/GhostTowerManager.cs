@@ -73,6 +73,9 @@ public class GhostTowerManager : MonoBehaviour
         if (rangeTransform != null)
         {
             rangeTransform.gameObject.SetActive(isActive);
+            Tower ghostTower = tower.GetComponent<Tower>();
+            float targetingRange = ghostTower.GetTargetingRange();
+            rangeTransform.localScale = new Vector3(targetingRange, targetingRange, 1f);
         }
     }
 

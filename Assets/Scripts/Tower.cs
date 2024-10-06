@@ -104,4 +104,9 @@ public class Tower : MonoBehaviour
     {
         bps = newBPS;
     }
+
+    public float GetTargetingRange()
+    {
+        return targetingRange;
+    }
 }
