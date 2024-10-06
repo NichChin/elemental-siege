@@ -33,6 +33,9 @@ public class TowerAttack : MonoBehaviour
                 DealDamage();
                 Destroy(gameObject); 
             }
+        } else if (target == null)
+        {
+            Destroy(gameObject);
         }
     }
 
