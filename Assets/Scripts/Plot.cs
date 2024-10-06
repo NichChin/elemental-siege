@@ -14,10 +14,6 @@ public class Plot : MonoBehaviour
 
     private GameObject tower;
     private Color startColor;
-    private Color placeable = new Color(62 / 255f, 255 / 255f, 42 / 255f, 1f);
-    private Color notPlaceable = new Color(255 / 255f, 32 / 255f, 48 / 255f, 1f);
-    private bool isMouseOn = false;
-    private bool isTowerSelected = false;
 
     private void Start()
     {
