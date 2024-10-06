@@ -13,12 +13,11 @@ public class Plot : MonoBehaviour
 
     private GameObject tower;
     private Color startColor;
+    private Color placeable = new Color(62 / 255f, 255 / 255f, 42 / 255f, 1f);
+    private Color notPlaceable = new Color(255 / 255f, 32 / 255f, 48 / 255f, 1f);
 
     private void Start()
     {
-        Color placeable = new Color(62 / 255f, 255 / 255f, 42 / 255f, 1f);
-        Color notPlaceable = new Color(255 / 255f, 32 / 255f, 48 / 255f, 1f);
-
         startColor = sr.color;
         hoverColor = isPlaceable ? placeable : notPlaceable;
     }
@@ -26,7 +25,15 @@ public class Plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        sr.color = hoverColor;
+        if(BuildManager.main.GetSelectedTower().cost > LevelManager.main.GetMana() || tower != null)
+        {
+            sr.color = notPlaceable;
+        }
+        else
+        {
+            sr.color = placeable;
+        }
+        
     }
 
     private void OnMouseExit()
@@ -38,8 +45,17 @@ public class Plot : MonoBehaviour
     {
         if (tower != null || !isPlaceable) return;
 
-        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
-        tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
+        BaseTower towerToBuild = BuildManager.main.GetSelectedTower();
+
+
+        if (towerToBuild.cost > LevelManager.main.GetMana())
+        {
+            print("not enough moneys");
+            return;
+        }
+
+        LevelManager.main.DecreaseMana(towerToBuild.cost);
+        tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
 
     }
 
