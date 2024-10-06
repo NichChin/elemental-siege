@@ -99,4 +99,9 @@ public class Tower : MonoBehaviour
         }
 
     }
+
+    public void SetBPS(float newBPS)
+    {
+        bps = newBPS;
+    }
 }

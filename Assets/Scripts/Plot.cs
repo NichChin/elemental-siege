@@ -13,6 +13,7 @@ public class Plot : MonoBehaviour
 
     private GameObject tower;
     private Color startColor;
+    private bool isMouseOn = false;
 
     private void Start()
     {
@@ -26,21 +27,57 @@ public class Plot : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        isMouseOn = true;
         sr.color = hoverColor;
+
+        GameObject towerToBuild = BuildManager.main.GetSelectedTower();
+        GhostTowerManager.Instance.ShowGhostTower(towerToBuild, transform.position, hoverColor, 0.4f);
     }
 
     private void OnMouseExit()
     {
         sr.color = startColor;
+
+        if (isMouseOn) return;
+        isMouseOn = false;
+        
+        GhostTowerManager.Instance.HideGhostTower();
     }
 
     private void OnMouseDown()
     {
         if (tower != null || !isPlaceable) return;
 
+        GhostTowerManager.Instance.HideGhostTower();
+
         GameObject towerToBuild = BuildManager.main.GetSelectedTower();
         tower = Instantiate(towerToBuild, transform.position, Quaternion.identity);
 
+    }
+
+    private void SetGhostTowerOpacity(GameObject tower, float opacity)
+    {
+        SpriteRenderer[] renderers = tower.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            Color color = renderer.color;
+            color.a = opacity;
+            renderer.color = color;
+        }
+    }
+
+    private void SetGhostTowerRangeColor(GameObject tower, Color color, float opacity)
+    {
+        Transform rangeTransform = tower.transform.Find("Range");
+        if (rangeTransform != null)
+        {
+            SpriteRenderer rangeRenderer = rangeTransform.GetComponent<SpriteRenderer>();
+            if (rangeRenderer != null)
+            
+                rangeRenderer.color = color;
+                color.a = opacity;
+            
+        }
     }
 
 }
