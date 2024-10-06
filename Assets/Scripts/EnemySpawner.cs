@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenWaves = 10f;
     [SerializeField] private float difficultyScalingFactor = 0.75f;
     [SerializeField] private float enemiesPerSecond = 0.5f;
+    [SerializeField] private int baseWaves = 3;
 
     public static UnityEvent onEnemyDestroy = new UnityEvent();
 
@@ -20,7 +21,6 @@ public class EnemySpawner : MonoBehaviour
     private float timeSinceLastSpawn;
     private int enemiesAlive;
     private int enemiesLeftToSpawn;
-    private List<GameObject> spawnedEnemies = new List<GameObject>();
     private bool isSpawning = false;
 
     private void Awake()
@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
             timeSinceLastSpawn = 0f; // don't want to call it every frame..
         }   
 
-        if (enemiesAlive == 0 && enemiesLeftToSpawn == 0)
+        if (enemiesAlive <= 0 && enemiesLeftToSpawn <= 0)
         {
             EndWave();
         }
@@ -56,7 +56,14 @@ public class EnemySpawner : MonoBehaviour
         isSpawning = false;
         timeSinceLastSpawn = 0f;
         currentWave++;
-        StartCoroutine(StartWave()); // start next wave after one has ended
+        if (currentWave > baseWaves)
+        {
+            LevelManager.main.Win();
+        } else
+        {
+            StartCoroutine(StartWave()); // start next wave after one has ended
+        }
+        
     }
 
     private void EnemyDestroyed()
@@ -67,7 +74,7 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         isSpawning = true;
-        enemiesLeftToSpawn = baseEnemies;
+        enemiesLeftToSpawn = EnemiesPerWave();
     }
 
      private void SpawnEnemy()

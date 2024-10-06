@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
 
     [SerializeField] private float moveSpeed = 0.5f;
+    [SerializeField] private int damage = 20;
 
     private Transform target;
     private int pathIndex = 0;
@@ -27,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 // reached the end
                 EnemySpawner.onEnemyDestroy.Invoke();
+                LevelManager.main.DecreaseHealth(damage);
                 Destroy(gameObject);
                 return;
             } else 

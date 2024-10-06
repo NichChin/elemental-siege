@@ -6,7 +6,7 @@ using UnityEngine;
 public class TowerAttack : MonoBehaviour
 {
     public Transform target; // The enemy to attack
-    public float attackSpeed = 1f; // Speed of the Pokémon's attack
+    public float attackSpeed = 1f; // Speed of the Pokï¿½mon's attack
     public float attackRange = 0.01f; // Distance to consider the attack "hit"
     public int attackDamage = 10; // Damage dealt on hit
     public float opacity = 0.5f;
@@ -33,6 +33,9 @@ public class TowerAttack : MonoBehaviour
                 DealDamage();
                 Destroy(gameObject); 
             }
+        } else if (target == null)
+        {
+            Destroy(gameObject);
         }
     }
 
