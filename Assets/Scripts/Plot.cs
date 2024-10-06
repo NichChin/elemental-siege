@@ -60,18 +60,11 @@ public class Plot : MonoBehaviour
     private void OnMouseExit()
     {
         if (IsPointerOverUIElement())
-        {
-            GhostTowerManager.Instance.HideGhostTower();
-            sr.color = startColor;
-            return;
-        }
-
         sr.color = startColor;
-        isTowerSelected = false;
 
         if (isMouseOn) return;
         isMouseOn = false;
-
+        
         GhostTowerManager.Instance.HideGhostTower();
     }
 
@@ -101,6 +94,31 @@ public class Plot : MonoBehaviour
             tower = Instantiate(towerToBuild.prefab, transform.position, Quaternion.identity);
         
             GhostTowerManager.Instance.HideGhostTower();
+        }
+    }
+
+    private void SetGhostTowerOpacity(GameObject tower, float opacity)
+    {
+        SpriteRenderer[] renderers = tower.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            Color color = renderer.color;
+            color.a = opacity;
+            renderer.color = color;
+        }
+    }
+
+    private void SetGhostTowerRangeColor(GameObject tower, Color color, float opacity)
+    {
+        Transform rangeTransform = tower.transform.Find("Range");
+        if (rangeTransform != null)
+        {
+            SpriteRenderer rangeRenderer = rangeTransform.GetComponent<SpriteRenderer>();
+            if (rangeRenderer != null)
+            
+                rangeRenderer.color = color;
+                color.a = opacity;
+            
         }
     }
 
