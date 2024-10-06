@@ -1,6 +1,6 @@
 ## ELEMENTAL SIEGE
 
-Elemental Siege is a 2D top-down tower defense game where you play as a Wizard defending their tower by summoning Elementals.
+Elemental Siege is a dynamic 2D tower defense game where players harness the power of the elements to defend their fortress from waves of mystical enemies. Players can build and upgrade towers based on elemental affinities such as fire, ice, and earth,  each with unique abilities and synergies. Strategic placement and the combination of elements are key to creating devastating defenses and overcoming increasingly powerful foes.
 
 ### Play here: https://grakp.itch.io/elemental-siege
 
