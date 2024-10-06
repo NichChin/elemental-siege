@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] public Transform[] path;
 
     [SerializeField] private int mana; // for testing purposes to edit in the inspector
-    [SerializeField] private int score; // for testing purposes to edit in the inspector
+    [SerializeField] private int score; 
     [SerializeField] private int health = 100;
 
     private UIManager uiManager;
@@ -50,10 +50,16 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("Game Over!");
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void Win()
+    {
+        Debug.Log("Win!");
+        SceneManager.LoadScene("Win");
     }
 
     public int GetMana()
